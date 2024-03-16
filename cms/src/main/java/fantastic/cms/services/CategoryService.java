@@ -1,5 +1,6 @@
 package fantastic.cms.services;
 
+import fantastic.cms.requests.CategoryRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,7 +19,9 @@ public class CategoryService {
         return this.categoryRepository.save(category);
     }
 
-    public Category create(Category category) {
+    public Category create(CategoryRequest request) {
+        Category category = new Category();
+        category.setName(request.getName());
         return this.categoryRepository.save(category);
     }
 
