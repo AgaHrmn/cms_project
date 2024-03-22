@@ -5,6 +5,7 @@ import java.util.List;
 import fantastic.cms.requests.UserRequest;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +13,7 @@ import fantastic.cms.models.User;
 import fantastic.cms.requests.CategoryRequest;
 @RestController
 @RequestMapping("/api/user")
+@Tag(name="news", description = "User API")
 public class UserResource {
 
     @GetMapping(value = "/{id}")
