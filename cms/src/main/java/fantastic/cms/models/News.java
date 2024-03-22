@@ -11,21 +11,30 @@ public class News {
     User author;
 
     Set<User> mandatoryReviewers;
-    Set<Review> reviewers;
+    Set<Review> reviews;
     Set<Category> categories;
     Set<Tag> tags;
 
-    public Review review(String userId, Status status) {
+    public Review addReview(String userId, Status status) {
         final Review review = new Review(userId, status);
-        this.reviewers.add(review);
+        this.reviews.add(review);
         return review;
     }
 
     public Boolean revised() {
         return this.mandatoryReviewers.stream()
-                .allMatch(reviewer -> this.reviewers.stream()
+                .allMatch(reviewer -> this.reviews.stream()
                         .anyMatch(review -> reviewer.id.equals(review.userId) &&
                                 Status.APPROVED == review.status));
+    }
+
+
+    public Set<Review> getReviews() {
+        return reviews;
+    }
+
+    public void deleteReview(String reviewId) {
+        reviews.removeIf(review -> review.getUserId().equals(reviewId));
     }
 
 }
