@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>FANTASTIC</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header>
     <h1>Welcome to FANTASTIC CMS</h1>
-    <h1>🚧🚧🚧🏗️👷🚧🚧🚧‍</h1>
 </header>
 <nav>
     <ul>
@@ -16,7 +16,7 @@
         <li><a href="#">Contact</a></li>
     </ul>
 </nav>
-<section>
+<section class="latest_news">
     <h2>Latest News</h2>
     <ul>
         <li th:each="news : ${newsList}">
@@ -25,13 +25,13 @@
         </li>
     </ul>
 </section>
-<section>
+<section class="categories">
     <h2>Categories</h2>
     <ul>
         <li th:each="category : ${categoryList}" th:text="${category.name}"></li>
     </ul>
 </section>
-<section>
+<section class="users">
     <h2>Users</h2>
     <ul>
         <li th:each="user : ${userList}" th:text="${user.username}"></li>
